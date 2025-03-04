@@ -1,0 +1,17 @@
+services:
+  client:
+    container_name: client-container
+    build:
+      context: .
+      dockerfile: Dockerfile.multi-stage
+    environment:
+      - NODE_ENV=production
+      - PORT=4200
+    restart: always
+    ports:
+      - 4200:4200
+    volumes:
+      - client:/opt/client
+
+volumes:
+  client:
